@@ -4,7 +4,15 @@
 from random import randint
 randomlist = []
 appendCounter = 0
-while appendCounter < 10:
+numberOfRandomValues = input('How many random values would you like to add to the list? ')
+try:
+    numberOfRandomValues = int(numberOfRandomValues)
+except:
+    print("Only integers are supported, please re-run and input some integer")
+    import sys
+    sys.exit()
+
+while appendCounter < numberOfRandomValues:
      randomInt = randint(0, 1000)
      randomlist.append(randomInt)
      appendCounter += 1
@@ -21,5 +29,7 @@ while i < len(randomlist):
 print("Sum of all numbers: " + str(summ) + "\n")
 
 #Calculating average
-average = summ / len(randomlist)
-print("Average number: " + str(average))
+if summ > 0:
+    average = summ / len(randomlist)
+    print("Average number: " + str(average))
+else: print ("Average number: 0")
